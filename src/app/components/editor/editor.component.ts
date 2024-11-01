@@ -1,4 +1,4 @@
-// editor.component.ts
+
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -10,11 +10,11 @@ import { WebSocketService } from '../../services/websocket.service';
   imports: [CommonModule, FormsModule],
   template: `
     <div class="editor-container">
-      <!-- Toolbar -->
+      
       <div class="toolbar">
         <div class="left">
           <h2 class="title">Collaborative Editor</h2>
-          <span class="document-id">Document ID: {{docId}}</span>
+          <span class="document-id">Broj Dokumenta (ID): {{docId}}</span>
         </div>
         <div class="right">
           <span class="status" [class.status-connected]="connectionStatus === 'Povezano'">
@@ -24,20 +24,20 @@ import { WebSocketService } from '../../services/websocket.service';
         </div>
       </div>
 
-      <!-- Editor Area -->
+      
       <div class="editor-wrapper">
         <textarea
           class="editor-textarea"
           [(ngModel)]="content"
           (input)="handleInput($event)"
-          placeholder="Start typing here..."
+          placeholder="Pocni kucati ovde..."
         ></textarea>
       </div>
 
-      <!-- Footer -->
+      
       <div class="editor-footer">
         <div class="character-count">
-          Characters: {{ content.length }}
+          Slova: {{ content.length }}
         </div>
       </div>
     </div>
@@ -151,7 +151,7 @@ export class EditorComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.wsService.poveziSeNaServer(this.docId);
     
-    // Pretplata na promene sadržaja od drugih korisnika
+    
     this.wsService.messages$.subscribe({
       next: (message: string) => {
         try {

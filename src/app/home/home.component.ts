@@ -1,4 +1,4 @@
-// home.component.ts
+
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -10,23 +10,23 @@ import { Router } from '@angular/router';
   template: `
     <div class="container">
       <header class="header">
-        <h1 class="title">Collaborative Editor</h1>
+        <h1 class="title">Zajednički uređivač teksta</h1>
       </header>
 
       <main class="main">
         <div class="documents-grid">
-          <!-- New Document Card -->
+          
           <div class="create-document-card" (click)="createNewDocument()">
             <div class="icon-container">
               <svg class="plus-icon" viewBox="0 0 24 24">
                 <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
               </svg>
             </div>
-            <h3>Create New Document</h3>
-            <p>Start collaborating with your team</p>
+            <h3>Napravi Novi Dokument</h3>
+            <p>Počnite sarađivati ​​sa svojim timom</p>
           </div>
 
-          <!-- Recent Documents List -->
+          
           <div *ngFor="let doc of recentDocuments" class="document-card" (click)="openDocument(doc.id)">
             <div class="doc-icon">
               <svg viewBox="0 0 24 24">
@@ -35,7 +35,7 @@ import { Router } from '@angular/router';
               </svg>
             </div>
             <h3>{{doc.name}}</h3>
-            <p>Last edited {{doc.lastEdited}}</p>
+            <p>Zadnja promena {{doc.lastEdited}}</p>
           </div>
         </div>
       </main>
@@ -120,15 +120,15 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
   recentDocuments = [
-    { id: '1', name: 'Project Notes', lastEdited: '2 hours ago' },
-    { id: '2', name: 'Meeting Minutes', lastEdited: '1 day ago' },
-    { id: '3', name: 'Ideas', lastEdited: '3 days ago' }
+    { id: '1', name: 'Beleske o projektu', lastEdited: 'Pre 2 sata' },
+    { id: '2', name: 'Zapisnik sa sastanka', lastEdited: 'Pre 1 dan' },
+    { id: '3', name: 'Ideja', lastEdited: 'Pre 3 dana' }
   ];
 
   constructor(private router: Router) {}
 
   createNewDocument() {
-    const docId = 'doc-' + Date.now(); // Jednostavan način generisanja ID-a
+    const docId = 'doc-' + Date.now(); 
     this.router.navigate(['/editor', docId]);
   }
 

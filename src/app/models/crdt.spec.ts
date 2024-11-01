@@ -1,7 +1,7 @@
-import { Crdt } from './crdt';
+import { CRDT } from './crdt';
 
 describe('Crdt', () => {
   it('should create an instance', () => {
-    expect(new Crdt()).toBeTruthy();
+    expect(new CRDT()).toBeTruthy();
   });
 });

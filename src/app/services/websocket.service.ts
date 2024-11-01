@@ -1,4 +1,4 @@
-// websocket.service.ts
+
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 
@@ -13,7 +13,7 @@ export class WebSocketService {
   constructor() {}
 
   poveziSeNaServer(docId: string): void {
-    // Koristi stvarni WebSocket URL za tvoj server
+    
     const wsUrl = `ws://localhost:3000/doc/${docId}`;
     this.ws = new WebSocket(wsUrl);
 
