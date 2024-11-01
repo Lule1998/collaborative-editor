@@ -1,23 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <div class="container">
-      <h1>Collaborative Text Editor</h1>
-      <app-editor docId="test-doc-1"></app-editor>
-    </div>
-  `,
-  styles: [`
-    .container {
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-  `]
+  template: `<router-outlet></router-outlet>`,
+  standalone: true,
+  imports: [RouterOutlet]
 })
-export class AppComponent {
-  title = 'collaborative-editor';
-}
+export class AppComponent {}
